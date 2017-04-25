@@ -1,0 +1,36 @@
+@startuml
+
+title "System sequence diagram - Use case: Create character"
+hide footbox
+
+
+actor ":Player" as player
+participant ":System" as system
+
+player->system : initiateCharacterBuild()
+
+
+system->player : name and gender?
+loop  name != unique
+player->system : createCharacter(name,gender)
+end
+
+system->player : character created.
+system->player : displays race  options
+
+player->system : setRace(race)
+
+system->player : displays class options.
+
+player->system : setClass(class)
+
+
+
+
+
+
+
+
+
+
+@enduml

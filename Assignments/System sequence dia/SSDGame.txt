@@ -1,0 +1,24 @@
+@startuml
+
+title "System sequence diagram - Use case: Create game"
+hide footbox
+
+
+actor ":Player" as player
+participant ":System" as system
+
+player->system :gameCreation()
+
+system->player :name of game?
+loop !unique name 
+end 
+player->system: createGame(name)
+
+system->player :game created
+
+system->player :loadGame(name)
+
+
+
+
+@enduml
