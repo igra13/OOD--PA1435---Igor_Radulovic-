@@ -11,9 +11,10 @@ player->system : initiateCharacterBuild()
 
 
 system->player : name and gender?
-loop  name != unique
-player->system : createCharacter(name,gender)
+loop  name !unique
 end
+player->system : createCharacter(name,gender)
+
 
 system->player : character created.
 system->player : displays race  options
