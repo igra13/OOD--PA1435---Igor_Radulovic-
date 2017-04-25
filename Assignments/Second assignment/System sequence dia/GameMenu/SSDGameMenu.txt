@@ -18,8 +18,9 @@ player->system : initiateCharacterBuild()
 
 
 system->player : name and gender?
-loop  name != unique
 player->system : createCharacter(name,gender)
+loop  name ! unique
+
 end
 
 
