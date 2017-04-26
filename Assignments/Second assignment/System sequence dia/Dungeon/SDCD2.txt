@@ -13,14 +13,16 @@ activate s
 ->s : enteringDungeon()
 
 
-activate dm
-s->dm : createMonster()
+
+s->m : createMonster()
+activate m
+deactivate m
 s->t : getInfo()
 activate t
 
 
-dm->m :createMonster()
-activate m
+
+
 
 
 
@@ -28,11 +30,16 @@ t-->s : info(name,race)
 deactivate t
 
 s->m : setName(name)
+activate m
 s->m : setRace(race)
+deactivate m
 
 
 deactivate m
+
 s->dm :currentMonster(monster)
+activate dm
+deactivate dm
 
 
 
