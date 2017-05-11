@@ -1,0 +1,41 @@
+@startuml
+
+title "Sequence Diagram - Create dungeon"
+participant ":System" as s
+participant ":DungeonManager" as dm
+
+participant ":Monster" as m
+participant ":TwitterAPI" as t
+
+
+
+activate s
+->s : enteringDungeon()
+
+
+activate dm
+s->dm : createMonster()
+s->t : getInfo()
+activate t
+
+
+dm->m :createMonster()
+activate m
+
+
+
+t-->s : info(name,race)
+deactivate t
+
+s->m : setName(name)
+s->m : setRace(race)
+
+
+deactivate m
+s->dm :currentMonster(monster)
+
+
+
+deactivate s
+
+@enduml
